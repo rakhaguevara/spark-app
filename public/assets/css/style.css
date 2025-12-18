@@ -45,7 +45,7 @@ body {
 .spark-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    margin-top: 10px;
 }
 
 .spark-logo img {
@@ -96,10 +96,10 @@ body {
 
 .spark-login-btn {
     color: var(--spark-yellow);
-    border: 1.5px solid var(--spark-yellow);
-    padding: 8px 28px;
+    border: 1px solid var(--spark-yellow);
+    padding: 8px 40px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 400;
     background: transparent;
     transition: all 0.2s ease;
     text-decoration: none;
@@ -140,6 +140,7 @@ body {
 }
 
 .hero-text h1 {
+    padding-left: 18px;
     font-size: 70px;
     font-weight: 300;
     line-height: 1.1;
@@ -149,6 +150,8 @@ body {
 }
 
 .hero-text p {
+    padding-left: 24px;
+
     font-size: 16px;
     line-height: 1.7;
     color: #d0d0d0;
@@ -158,6 +161,8 @@ body {
 
 /* BUTTONS */
 .hero-actions {
+    padding-left: 24px;
+
     display: flex;
     gap: 24px;
 }
@@ -202,7 +207,7 @@ body {
     position: absolute;
     right: -150px;
     top: 30%;
-    transform: translateY(-40%) translateX(-20%);
+    transform: translateY(-39%) translateX(-21%);
     width: 950px;
     height: 580px;
     z-index: 1;
