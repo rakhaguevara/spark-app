@@ -15,13 +15,13 @@
         <div class="collapse navbar-collapse spark-center" id="sparkNav">
             <ul class="navbar-nav mx-auto gap-4">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link " href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Service</a>
+                <li class="nav-item ">
+                    <a class="nav-link " href="#">Service</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#">Reserved Park Now!</a>
+                <li class="nav-item active">
+                    <a class="nav-link fw-semibold " href="#">Reserved Park Now!</a>
                 </li>
             </ul>
         </div>

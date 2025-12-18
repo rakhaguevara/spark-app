@@ -23,11 +23,21 @@ body {
 /* =========================================================
    NAVBAR
 ========================================================= */
+
 .spark-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
     background-color: var(--spark-dark);
-    padding: 20px 0;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+/* Saat scroll */
+.spark-navbar.scrolled {
+    backdrop-filter: blur(6px);
+    background-color: rgba(45, 45, 45, 0.92);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
+}
 .spark-nav-wrapper {
     max-width: 1400px;
     margin: 0 auto;
@@ -66,28 +76,45 @@ body {
     gap: 36px;
 }
 
+/* NAV LINK BASE */
 .spark-center .nav-link {
+    position: relative;
     color: #ffffff;
     font-weight: 500;
-    position: relative;
-    padding: 4px 0;
-    text-decoration: none;
-    transition: color 0.2s ease;
+    padding: 6px 0;
+    transition: color 0.25s ease;
 }
 
-.spark-center .nav-link:hover,
-.spark-center .nav-link.active {
+
+/* NAV LINK BASE */
+.spark-center .nav-link {
+    position: relative;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 6px 0;
+    transition: color 0.25s ease;
+}
+
+/* UNDERLINE (INITIAL STATE) */
+.spark-center .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--spark-yellow);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+/* AKTIF SAAT HOVER VIA JS */
+.spark-center .nav-link.is-hovered {
     color: var(--spark-yellow);
 }
 
-.spark-center .nav-link.active::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
+.spark-center .nav-link.is-hovered::after {
     width: 100%;
-    height: 2px;
-    background-color: var(--spark-yellow);
 }
 
 .spark-right {
@@ -115,7 +142,7 @@ body {
    HERO SECTION
 ========================================================= */
 .hero {
-    padding: 80px 0 90px;
+    padding: 80px 0 10px 0;
     overflow: visible;
 }
 
@@ -221,9 +248,540 @@ body {
 
 }
 
+
+/* =========================================================
+   FEATURES SECTION
+========================================================= */
+
+.features {
+    padding: 0px 0 100px;
+    background-color: var(--spark-dark);
+}
+
+.features-container {
+    max-width: 1330px;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* CARD */
+.feature-card {
+    background-color: #ffffff;
+    color: #1e1e1e;
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* optional hover */
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+/* ICON */
+.feature-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #bdbdbd;
+    color: var(--spark-yellow);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* TITLE */
+.feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.feature-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* LIST */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    font-size: 13px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.feature-list li::before {
+    content: "✓";
+    color: #000;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EXPLORE SECTION
+========================================================= */
+
+.explore {
+    padding: 60px 0 100px;
+}
+
+.explore-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* HEADER */
+.explore-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.explore-header h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.explore-header p {
+    font-size: 14px;
+    color: #cfcfcf;
+    max-width: 600px;
+}
+
+/* CONTENT */
+.explore-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+}
+
+/* LEFT LIST */
+.parking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARD */
+.parking-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.parking-card img {
+    width: 140px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.parking-info {
+    flex: 1;
+    color: #111;
+}
+
+.parking-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.parking-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #555;
+}
+
+.parking-info ul li {
+    margin-bottom: 4px;
+}
+
+/* FOOTER */
+.parking-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    font-size: 13px;
+    color: #777;
+}
+
+/* BUTTONS */
+.parking-footer .actions {
+    display: flex;
+    gap: 8px;
+}
+
+.parking-footer .btn {
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.parking-footer .btn.book {
+    background: #2d2d2d;
+    color: #fff;
+}
+
+.parking-footer .btn.outline {
+    border: 1px solid #999;
+    color: #333;
+}
+
+/* MAP */
+.map-wrapper {
+    background: #111;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100%;
+}
+
+#map-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-weight: 500;
+    background: linear-gradient(135deg, #2a2a2a, #1c1c1c);
+}
+
+
+/* =========================
+   MAP SECTION
+========================= */
+
+.map-wrapper {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* MAP ITSELF */
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+}
+
+
+/* =========================================================
+   SECTION: MORE WAYS TO USE SPARK
+========================================================= */
+
+.use-spark {
+    padding: 100px 0;
+    background-color: var(--spark-dark);
+}
+
+.use-spark-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* HEADER */
+.use-spark-header {
+    max-width: 720px;
+    margin-bottom: 80px;
+}
+
+.use-spark-header h2 {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.use-spark-header p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #d0d0d0;
+}
+
+/* CONTENT */
+.use-spark-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+/* LEFT TEXT */
+.use-spark-text {
+    max-width: 520px;
+}
+
+.use-spark-text h3 {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.use-spark-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #d0d0d0;
+    margin-bottom: 32px;
+}
+
+.use-spark-actions {
+    display: flex;
+    gap: 20px;
+}
+
+/* RIGHT IMAGE */
+.use-spark-image {
+    width: 560px;
+    height: 420px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.use-spark-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   USE SPARK - ALTERNATE (REVERSE)
+========================================================= */
+
+.use-spark.alt {
+    padding-top: 0; /* biar rapat antar section */
+}
+
+.use-spark-content.reverse {
+    flex-direction: row;
+}
+
+/* Responsive tetap aman */
+@media (max-width: 992px) {
+    .use-spark-content.reverse {
+        flex-direction: column;
+    }
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials {
+    padding: 100px 0;
+}
+
+.testimonials-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* HEADER */
+.testimonials-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+}
+
+.testimonials-header h2 {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.testimonials-header p {
+    max-width: 520px;
+    color: #cfcfcf;
+    line-height: 1.6;
+}
+
+/* LIST */
+.testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* CARD */
+.testimonial-card {
+    background: #ffffff;
+    color: #111;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.stars {
+    color: var(--spark-yellow);
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.testimonial-text {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* FOOTER */
+.testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user strong {
+    display: block;
+    font-size: 14px;
+}
+
+.user span {
+    font-size: 12px;
+    color: #777;
+}
+
+.date {
+    font-size: 12px;
+    color: #888;
+}
+
+
+.client-logos {
+    background: var(--spark-dark);
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.logos-track {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    width: max-content;
+    animation: scrollLogos 25s linear infinite;
+}
+
+.logos-track img {
+    height: 48px;
+    opacity: 0.75;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.logos-track img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+@keyframes scrollLogos {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+
+
+
+
+
+
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
+
+@media (max-width: 1439px) {
+    .hero-image {
+        right: -100px;
+        width: 850px;
+        height: 520px;
+        transform: translateY(-42%) translateX(-18%);
+    }
+
+    .hero-text h1 {
+        font-size: 64px;
+    }
+}
+
+
+
+@media (max-width: 1199px) {
+    .hero-image {
+        right: -60px;
+        width: 720px;
+        height: 460px;
+        transform: translateY(-44%) translateX(-12%);
+    }
+
+    .hero-text {
+        padding-right: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 56px;
+        white-space: normal; /* mulai wrap agar tidak overflow */
+    }
+}
+
+
+
 @media (max-width: 1400px) {
     .hero-image {
         right: -100px;
@@ -251,11 +809,33 @@ body {
     .hero-text {
         padding-right: 40px;
     }
+    .testimonial-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 992px) {
     .spark-center {
         display: none;
+    }
+
+    .use-spark-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 48px;
+    }
+
+    .use-spark-image {
+        width: 100%;
+        height: 360px;
+    }
+
+    .use-spark-header h2 {
+        font-size: 40px;
+    }
+
+    .use-spark-text h3 {
+        font-size: 32px;
     }
 
     .hero-container {
@@ -283,6 +863,11 @@ body {
         font-size: 48px;
         white-space: normal;
     }
+
+    .features-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -308,5 +893,16 @@ body {
 
     .hero-image {
         height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-list {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-header {
+        flex-direction: column;
+        gap: 20px;
     }
 }
