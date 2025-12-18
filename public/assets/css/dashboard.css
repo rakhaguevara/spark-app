@@ -1,0 +1,130 @@
+:root {
+  --park-primary: #1F6B4E;
+  --park-dark: #164E39;
+  --park-light: #E6F1EC;
+  --park-bg: #EAF4EF;
+  --park-text: #124935;
+}
+
+/* Typography */
+.fw-extra-bold {
+  font-weight: 800;
+}
+
+.text-park-primary {
+  color: var(--park-primary) !important;
+}
+
+/* Top Utility Bar */
+.top-utility {
+  background-color: var(--park-primary);
+  color: #fff;
+  font-size: 0.875rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.top-utility a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.top-utility a:hover {
+  color: #fff;
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: var(--park-bg);
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.hero-container {
+  background-color: var(--park-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    padding: 2rem;
+  }
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Hero Navbar */
+.navbar-hero {
+  background-color: var(--park-light);
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.navbar-hero .nav-link {
+  color: var(--park-text);
+  font-weight: 500;
+}
+
+.navbar-hero .nav-link:hover {
+  color: var(--park-primary);
+}
+
+.navbar-hero .navbar-brand {
+  color: var(--park-text);
+}
+
+/* Buttons */
+.btn-park-primary {
+  background-color: var(--park-primary);
+  border-color: var(--park-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-park-primary:hover {
+  background-color: var(--park-dark);
+  border-color: var(--park-dark);
+  color: #fff;
+}
+
+.btn-park-outline {
+  background-color: transparent;
+  border-color: var(--park-primary);
+  color: var(--park-primary);
+  font-weight: 600;
+}
+
+.btn-park-outline:hover {
+  background-color: rgba(31, 107, 78, 0.1);
+  border-color: var(--park-dark);
+  color: var(--park-dark);
+}
+
+/* Hero Image */
+.hero-image-wrapper {
+  text-align: center;
+}
+
+.hero-image {
+  border-radius: 1rem;
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 992px) {
+  .hero-image-wrapper {
+    text-align: right;
+  }
+}
+
+/* Dashboard Cards (Existing) */
+.dashboard-stats {
+  padding-top: 2rem;
+}
