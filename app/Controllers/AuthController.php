@@ -1,12 +1,12 @@
 <?php
 
-class AuthController
+class AuthController extends Controller
 {
     private $userModel;
 
     public function __construct()
     {
-        $this->userModel = new User();
+        $this->userModel = $this->model('User');
     }
 
     // HALAMAN LOGIN
@@ -14,8 +14,7 @@ class AuthController
     {
         // ⛔ Kalau sudah login, jangan boleh ke login lagi
         if (isset($_SESSION['user'])) {
-            header('Location: ' . BASEURL . '/dashboard');
-            exit;
+            $this->redirect('/dashboard');
         }
 
         require_once __DIR__ . '/../Views/auth/login.php';
@@ -25,8 +24,7 @@ class AuthController
     public function authenticate()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: ' . BASEURL . '/login');
-            exit;
+            $this->redirect('/login');
         }
 
         $email = trim($_POST['email'] ?? '');
@@ -34,16 +32,14 @@ class AuthController
 
         if (!$email || !$password) {
             $_SESSION['error'] = 'Email dan password wajib diisi';
-            header('Location: ' . BASEURL . '/login');
-            exit;
+            $this->redirect('/login');
         }
 
         $user = $this->userModel->findByEmail($email);
 
         if (!$user || !password_verify($password, $user->password_pengguna)) {
             $_SESSION['error'] = 'Email atau password salah';
-            header('Location: ' . BASEURL . '/login');
-            exit;
+            $this->redirect('/login');
         }
 
         // ✅ SET SESSION
@@ -54,15 +50,13 @@ class AuthController
             'role'  => $user->nama_role
         ];
 
-        header('Location: ' . BASEURL . '/dashboard');
-        exit;
+        $this->redirect('/dashboard');
     }
 
     // LOGOUT
     public function logout()
     {
         session_destroy();
-        header('Location: ' . BASEURL . '/login');
-        exit;
+        $this->redirect('/login');
     }
 }
