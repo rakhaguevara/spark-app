@@ -118,6 +118,11 @@
   height: auto;
 }
 
+
+
+
+
+
 @media (min-width: 992px) {
   .hero-image-wrapper {
     text-align: right;
@@ -128,3 +133,5 @@
 .dashboard-stats {
   padding-top: 2rem;
 }
+
+

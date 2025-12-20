@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login | SPARK</title>
+    <title>Register | SPARK</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="<?= BASEURL; ?>/assets/img/logo.png">
 
 
-    <!-- costum css login -->
-    <link href="<?= BASEURL; ?>/assets/css/login-style.css" rel="stylesheet">
+    <!-- CSS LOGIN / REGISTER -->
+    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/login-style.css">
 </head>
 
 <body>
@@ -21,60 +21,53 @@
         <div class="login-left">
             <div class="login-box">
 
+                <!-- Switch -->
                 <div class="login-switch">
-                    <button type="button" class="switch-btn active"
+                    <button type="button" class="switch-btn "
                         onclick="window.location.href='<?= BASEURL; ?>/login'">
                         Login
                     </button>
 
-                    <button type="button" class="switch-btn"
+                    <button type="button" class="switch-btn active"
                         onclick="window.location.href='<?= BASEURL; ?>/register'">
                         Sign Up
                     </button>
                 </div>
 
 
+                <h1>Welcome New Member!</h1>
+                <p class="subtitle">
+                    Welcome to SPARK,<br>
+                    Your journey starts here
+                </p>
 
-                <h1>Welcome to SPARK!</h1>
-                <p class="subtitle">Please enter your details to login.</p>
+                <form action="<?= BASEURL; ?>/auth/register" method="POST">
 
-                <form action="<?= BASEURL; ?>/login/auth" method="POST">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Enter your username" required>
 
                     <label>Email Address</label>
                     <input type="email" name="email" placeholder="Enter your email address" required>
 
-                    <div class="password-row">
-                        <label>Password</label>
-                        <a href="<?= BASEURL; ?>/forgot-password">Forgot Password?</a>
-                    </div>
-
+                    <label>Password</label>
                     <input type="password" name="password" placeholder="Enter your password" required>
 
-                    <button type="submit" class="btn-primary">Log In</button>
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="Enter your phone number" required>
+
+                    <button type="submit" class="btn-primary">Sign Up</button>
 
                     <div class="divider">OR</div>
 
-                    <button type="button" class="btn-outline google">
-                        <img src="<?= BASEURL; ?>/assets/img/google.svg" alt="Google">
-                        <span>Continue with Google</span>
-                    </button>
-
-                    <button type="button" class="btn-outline apple">
-                        <img src="<?= BASEURL; ?>/assets/img/apple.svg" alt="Apple">
-                        <span>Continue with Apple</span>
-                    </button>
-
-                    <button type="button" class="btn-outline binance">
-                        <img src="<?= BASEURL; ?>/assets/img/binance.svg" alt="Binance">
-                        <span>Continue with Binance</span>
-                    </button>
 
                 </form>
 
                 <p class="signup-text">
-                    Don’t have an account yet?
-                    <a href="<?= BASEURL; ?>/register">Sign Up</a>
-
+                    Already have an account?
+                    <a href="<?= BASEURL; ?>/login">Login</a>
                 </p>
 
             </div>

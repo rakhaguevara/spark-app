@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.spark-center .nav-link');
-    const navContainer = document.querySelector('.spark-center');
+    const toggle = document.getElementById('profileToggle');
+    const dropdown = document.getElementById('profileDropdown');
 
-    if (!navLinks.length || !navContainer) return;
+    if (!toggle || !dropdown) return;
 
-    navLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            navLinks.forEach(l => l.classList.remove('is-hovered'));
-            link.classList.add('is-hovered');
-        });
+    // Toggle dropdown saat avatar diklik
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
     });
 
-    navContainer.addEventListener('mouseleave', () => {
-        navLinks.forEach(l => l.classList.remove('is-hovered'));
-        
-        // Optional: kembali ke active
-        const active = document.querySelector('.spark-center .nav-link.active');
-        if (active) active.classList.add('is-hovered');
+    // Tutup dropdown saat klik di luar
+    document.addEventListener('click', () => {
+        dropdown.classList.remove('show');
+    });
+
+    // Supaya klik di dalam dropdown tidak nutup
+    dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 });

@@ -27,16 +27,17 @@ body {
 .spark-navbar {
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 10000;
     background-color: var(--spark-dark);
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 /* Saat scroll */
 .spark-navbar.scrolled {
-    backdrop-filter: blur(6px);
-    background-color: rgba(45, 45, 45, 0.92);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
+    backdrop-filter: none;
+    /* background-color: rgba(45, 45, 45, 0.92); */
+    /* box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06); */
+     background-color: #2D2D2D; /* FULL OPAQUE */
 }
 .spark-nav-wrapper {
     max-width: 1400px;
@@ -467,6 +468,74 @@ body {
     overflow: hidden;
     height: 100%;
 }
+
+/* Pastikan container map jadi reference */
+.map-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+/* Leaflet map */
+#map {
+    position: relative;
+    width: 100%;
+    height: 520px;
+}
+
+/* Paksa Leaflet control mengikuti map */
+.map-wrapper .leaflet-control-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* Geser tombol zoom ke bawah */
+.map-wrapper .leaflet-top.leaflet-left {
+    top: 20px; /* jarak dari atas map */
+}
+
+.leaflet-control {
+    z-index: 600 !important;
+}
+
+/* Pastikan SEMUA elemen Leaflet berada DI BAWAH navbar */
+.leaflet-pane,
+.leaflet-control,
+.leaflet-top,
+.leaflet-bottom {
+    z-index: 400;
+}
+
+/* TURUNKAN SEMUA LAYER LEAFLET */
+.leaflet-pane {
+    z-index: 100 !important;
+}
+
+.leaflet-tile-pane {
+    z-index: 100 !important;
+}
+
+.leaflet-overlay-pane {
+    z-index: 200 !important;
+}
+
+.leaflet-shadow-pane {
+    z-index: 300 !important;
+}
+
+.leaflet-marker-pane {
+    z-index: 400 !important;
+}
+
+.leaflet-popup-pane {
+    z-index: 500 !important;
+}
+
+.leaflet-control {
+    z-index: 600 !important;
+}
+
+
+
 
 #map-placeholder {
     width: 100%;

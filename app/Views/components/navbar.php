@@ -4,15 +4,15 @@
         <!-- LOGO (KIRI) -->
         <a class="navbar-brand d-flex align-items-center spark-left" href="<?= BASEURL ?>">
             <img src="<?= BASEURL; ?>/assets/img/logoSpark.png"
-                 alt="Logo"
-                 class="img-fluid"
-                 style="max-height: 60px;">
+                alt="Logo"
+                class="img-fluid"
+                style="max-height: 60px;">
         </a>
 
         <!-- TOGGLER (MOBILE) -->
         <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#sparkNav">
+            data-bs-toggle="collapse"
+            data-bs-target="#sparkNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -22,21 +22,21 @@
 
                 <li class="nav-item">
                     <a class="nav-link <?= ($_SERVER['REQUEST_URI'] === '/spark-app/public/') ? 'active' : '' ?>"
-                       href="<?= BASEURL ?>">
+                        href="<?= BASEURL ?>">
                         Home
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="#">
+                        href="#">
                         Service
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link fw-semibold"
-                       href="#">
+                        href="#">
                         Reserved Park Now!
                     </a>
                 </li>
@@ -59,21 +59,22 @@
                 <!-- JIKA SUDAH LOGIN -->
                 <div class="dropdown">
                     <button class="btn spark-login-btn dropdown-toggle"
-                            type="button"
-                            data-bs-toggle="dropdown">
-                        <?= htmlspecialchars($_SESSION['user']['nama']) ?>
+                        type="button"
+                        data-bs-toggle="dropdown">
+                        <?= htmlspecialchars($_SESSION['user']['nama_pengguna'] ?? 'User') ?>
+
                     </button>
 
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                             <a class="dropdown-item"
-                               href="<?= BASEURL ?>/dashboard">
+                                href="<?= BASEURL ?>/dashboard">
                                 Dashboard
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item text-danger"
-                               href="<?= BASEURL ?>/logout">
+                                href="<?= BASEURL ?>/logout">
                                 Logout
                             </a>
                         </li>

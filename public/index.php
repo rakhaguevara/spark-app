@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
 require_once __DIR__ . '/../config/config.php';
@@ -6,9 +10,12 @@ require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../core/Database.php';
 require_once __DIR__ . '/../core/Controller.php';
 
+
 // Load Controllers
 require_once __DIR__ . '/../app/Controllers/HomeController.php';
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
+require_once __DIR__ . '/../app/Controllers/DashboardController.php';
+
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -30,18 +37,23 @@ switch ($uri) {
         (new AuthController())->authenticate();
         break;
 
+    case '/register':
+        (new AuthController())->register();
+        break;
+    case '/auth/register':
+        (new AuthController())->registerProcess();
+        break;
+
+
+
     case '/logout':
         (new AuthController())->logout();
         break;
 
     case '/dashboard':
-        // Cek sesi login dulu
-        if (!isset($_SESSION['user'])) {
-            header('Location: ' . BASEURL . '/login');
-            exit;
-        }
-        require_once __DIR__ . '/../app/Views/dashboard.php';
+        (new DashboardController())->index();
         break;
+
 
     case '/':
     case '':

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>SPARK</title>
@@ -14,7 +15,7 @@
 
 
     <!-- maps -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 
 
@@ -23,6 +24,8 @@
 
     <!-- Custom CSS -->
     <link href="<?= BASEURL; ?>/assets/css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -37,20 +40,20 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JS -->
     <script src="<?= BASEURL; ?>/assets/js/navbar.js"></script>
 
     <!-- maps -->
     <script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""
-></script>
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 
-<!-- Custom JS Map -->
+    <!-- Custom JS Map -->
     <script src="<?= BASEURL; ?>/assets/js/map.js"></script>
     <!-- Custom JS Navbar Scroll -->
     <script src="<?= BASEURL; ?>/assets/js/navbar-scroll.js"></script>
 </body>
+
 </html>

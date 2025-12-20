@@ -11,27 +11,31 @@ class Controller
         die("Model $model not found.");
     }
 
-    public function view($view, $data = [])
+    public function view($view, $data = [], $layout = 'main')
     {
-        // Extract data for view
         if (!empty($data)) {
             extract($data);
         }
 
-        // Check if view exists
-        if (file_exists('../app/Views/' . $view . '.php')) {
-            // Buffer the view content
-            ob_start();
-            require_once '../app/Views/' . $view . '.php';
-            $content = ob_get_clean();
-
-            // Load main layout
-            require_once '../app/Views/layouts/main.php';
-        } else {
+        if (!file_exists('../app/Views/' . $view . '.php')) {
             die("View $view not found.");
         }
+
+        ob_start();
+        require_once '../app/Views/' . $view . '.php';
+        $content = ob_get_clean();
+
+        if ($layout === 'main') {
+            require_once '../app/Views/layouts/main.php';
+        } elseif ($layout === 'dashboard') {
+            require_once '../app/Views/layouts/dashboard.php';
+        } else {
+            echo $content;
+        }
     }
-    
+
+
+
     // Simple redirect helper
     public function redirect($url)
     {

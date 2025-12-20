@@ -136,7 +136,7 @@
                 </div>
 
                 <!-- DUPLIKASI CARD -->
-                 <div class="parking-card">
+                <div class="parking-card">
                     <img src="<?= BASEURL; ?>/assets/img/park-location-1.png" alt="Parking">
 
                     <div class="parking-info">
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="parking-card">
+                <div class="parking-card">
                     <img src="<?= BASEURL; ?>/assets/img/park-location-1.png" alt="Parking">
 
                     <div class="parking-info">
@@ -189,11 +189,9 @@
 
             <!-- RIGHT MAP -->
             <div class="map-wrapper">
-                <!-- nanti diganti API -->
-                <div id="map-placeholder">
                 <div id="map"></div>
-                </div>
             </div>
+
 
         </div>
     </div>
@@ -276,14 +274,14 @@
         <img src="<?= BASEURL; ?>/assets/img/transmart.png" alt="Transmart">
         <img src="<?= BASEURL; ?>/assets/img/pakuwon.png" alt="Transmart">
         <img src="<?= BASEURL; ?>/assets/img/sumarceon.png" alt="Transmart">
-        
+
         <!-- DUPLIKASI untuk seamless loop -->
-       <img src="<?= BASEURL; ?>/assets/img/ciputra.webp" alt="Ciputra Mall">
-       <img src="<?= BASEURL; ?>/assets/img/senayan.png" alt="Transmart">
-       <img src="<?= BASEURL; ?>/assets/img/transmart.png" alt="Transmart">
-       <img src="<?= BASEURL; ?>/assets/img/pakuwon.png" alt="Transmart">
-       <img src="<?= BASEURL; ?>/assets/img/sumarceon.png" alt="Transmart">
-       
+        <img src="<?= BASEURL; ?>/assets/img/ciputra.webp" alt="Ciputra Mall">
+        <img src="<?= BASEURL; ?>/assets/img/senayan.png" alt="Transmart">
+        <img src="<?= BASEURL; ?>/assets/img/transmart.png" alt="Transmart">
+        <img src="<?= BASEURL; ?>/assets/img/pakuwon.png" alt="Transmart">
+        <img src="<?= BASEURL; ?>/assets/img/sumarceon.png" alt="Transmart">
+
 </section>
 
 
@@ -380,5 +378,3 @@
 
     </div>
 </section>
-
-
